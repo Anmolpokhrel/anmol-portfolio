@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Anmol Pokhrel - Creative Graphic Designer & Social Media Marketing Expert with 5+ years of experience helping brands grow.">
 <meta name="keywords" content="Graphic Designer, Social Media Marketing, Branding, Logo Design, Nepal">
 <title>Anmol Pokhrel | Creative Graphic Designer & Social Media Expert</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-primary: #050508;
@@ -40,9 +40,9 @@
   body {
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
-    cursor: none;
+   
   }
 
   /* ── CUSTOM CURSOR ── */
@@ -93,7 +93,16 @@
     border-radius: 100px;
     animation: loadfill 1.8s ease forwards;
   }
-  @keyframes loadfill { to { width: 100%; } }
+  @keyframes loadfill { 
+    to { width: 100%; } 
+}
+
+h1, h2, h3, .hero-title, .section-title, .nav-logo {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
 
   /* ── NAV ── */
@@ -108,7 +117,7 @@
   }
   nav.scrolled { padding: 12px 5%; }
   .nav-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif; font-weight: 800; font-size: 1.4rem;
     background: var(--gradient-main); -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; background-clip: text;
     text-decoration: none;
