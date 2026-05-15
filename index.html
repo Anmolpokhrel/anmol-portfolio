@@ -808,7 +808,7 @@ h1, h2, h3, .hero-title, .section-title, .nav-logo {
       <div class="section-tag">About Me</div>
       <h2 class="section-title">Passionate Designer,<br><span class="gradient-text">Strategic Marketer</span></h2>
       <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:20px;">
-        Hi, I'm <strong style="color:var(--text-primary)">Anmol Pokhrel</strong> — a creative Graphic Designer and Social Media Marketing Expert based in Nepal with over <strong style="color:var(--neon-violet)">5+ years of professional experience</strong> helping brands stand out and grow.
+        Hi, I'm <strong style="color:var(--text-primary)">Anmol Pokhrel</strong> — a creative Graphic Designer and Social Media Marketing Expert based in Nepal with over <strong style="color:var(--neon-violet)">6+ years of professional experience</strong> helping brands stand out and grow.
       </p>
       <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">
         I specialize in crafting compelling visual identities, managing social media platforms, and running high-impact marketing campaigns. From logo design and brand identity to Facebook Ads and content strategy, I deliver results that drive engagement and revenue.
@@ -1407,50 +1407,50 @@ h1, h2, h3, .hero-title, .section-title, .nav-logo {
       </div>
     </div>
     <div class="reveal">
-      <form class="contact-form" onsubmit="handleFormSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="John Doe" required>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="john@example.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Service Needed</label>
-          <select>
-            <option value="">Select a service...</option>
-            <option>Social Media Handling</option>
-            <option>Logo Design</option>
-            <option>Business Branding</option>
-            <option>Graphic Design</option>
-            <option>Video Editing</option>
-            <option>Facebook Ads</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Budget Range</label>
-          <select>
-            <option value="">Select budget...</option>
-            <option>Under Rs1O00</option>
-            <option>Rs1000 – Rs2500</option>
-            <option>Rs2500 – Rs3500</option>
-            <option>Rs3500 – Rs5500</option>
-            <option>Rs10000+</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Your Message</label>
-          <textarea placeholder="Tell me about your project, goals, timeline, and any details..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="border:none;width:100%;font-size:1rem;">Send Message ✉️</button>
-        <div id="formSuccess" style="display:none;text-align:center;padding:14px;border-radius:12px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25d366;font-weight:600;">
-          ✅ Message sent! I'll get back to you soon.
-        </div>
-      </form>
+     <form class="contact-form" id="portfolioForm" onsubmit="handleFormSubmit(event)">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="John Doe" required>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="john@example.com" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Service Needed</label>
+    <select name="service">
+      <option value="">Select a service...</option>
+      <option>Social Media Handling</option>
+      <option>Logo Design</option>
+      <option>Business Branding</option>
+      <option>Graphic Design</option>
+      <option>Video Editing</option>
+      <option>Facebook Ads</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Budget Range</label>
+    <select name="budget">
+      <option value="">Select budget...</option>
+      <option>Under Rs1000</option>
+      <option>Rs1000 – Rs2500</option>
+      <option>Rs2500 – Rs3500</option>
+      <option>Rs3500 – Rs5500</option>
+      <option>Rs10000+</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Your Message</label>
+    <textarea name="message" placeholder="Tell me about your project..."></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="border:none; width:100%; font-size:1rem;">Send Message ✉️</button>
+  <div id="formSuccess" style="display:none; text-align:center; padding:14px; border-radius:12px; background:rgba(37,211,102,0.1); border:1px solid rgba(37,211,102,0.3); color:#25d366; font-weight:600; margin-top:10px;">
+    ✅ Message sent! I'll get back to you soon.
+  </div>
+</form>
     </div>
   </div>
 </section>
@@ -1617,17 +1617,47 @@ h1, h2, h3, .hero-title, .section-title, .nav-logo {
   });
 
   // ── CONTACT FORM ──
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('formSuccess').style.display = 'block';
-      btn.textContent = '✅ Sent!';
-      e.target.reset();
-    }, 1200);
-  }
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const button = form.querySelector('button[type="submit"]');
+    const status = document.getElementById("formSuccess");
+
+    // Change button state to show it's working
+    button.textContent = "Sending...";
+    button.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch("https://formspree.io/f/anmolpokhrel909@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            status.style.display = "block";
+            button.textContent = "✅ Sent!";
+            form.reset();
+            // Optional: reset button after 3 seconds
+            setTimeout(() => {
+                button.disabled = false;
+                button.textContent = "Send Message ✉️";
+            }, 3000);
+        } else {
+            alert("Oops! There was a problem. Please try again.");
+            button.disabled = false;
+            button.textContent = "Send Message ✉️";
+        }
+    } catch (error) {
+        alert("Connection error. Check your internet.");
+        button.disabled = false;
+        button.textContent = "Send Message ✉️";
+    }
+}
 
   // ── ANIMATED BACKGROUND PARTICLES ──
   (function createParticles() {
