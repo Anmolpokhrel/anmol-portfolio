@@ -383,6 +383,59 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
         overflow: hidden !important;
     }
 }
+ /* --- MOBILE MENU CLOSE BUTTON FIX --- */
+.mob-menu {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999 !important; /* Forces the menu to the absolute top layer */
+}
+
+.mob-close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: rgba(255, 255, 255, 0.1) !important; /* Light background bubble */
+    color: #ffffff !important; /* Force the X to be bright white */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-size: 24px !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 100000 !important; /* Keeps the X button above the menu links */
+}  
+   /* --- TESTIMONIAL / REVIEW CARD CUTOFF FIX --- */
+.test-track, .testimonial-track, .test-container {
+    display: flex !important;
+    flex-wrap: wrap !important; /* Lets cards wrap naturally on smaller screens */
+    height: auto !important;   /* Prevents the container from clipping content */
+    overflow: visible !important; 
+    justify-content: center !important;
+    gap: 24px !important;
+}
+
+.test-card, .testimonial-card {
+    height: auto !important;     /* Forces the card height to expand based on text size */
+    min-height: 250px !important; /* Sets a base height so cards look uniform */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+    .test-card, .testimonial-card {
+        width: 100% !important; /* Takes full width on mobile so text doesn't squeeze */
+        margin: 10px 0 !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -413,7 +466,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
     <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="mailto:anmolpokhrel909@gmail.com">anmolpokhrel909@gmail.com</a>
+  <a class="nav-cta" href="mail to:anmolpokhrel909@gmail.com">anmolpokhrel909@gmail.com</a>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
