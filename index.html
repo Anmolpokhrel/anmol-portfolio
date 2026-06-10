@@ -410,31 +410,32 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
     cursor: pointer !important;
     z-index: 100000 !important; /* Keeps the X button above the menu links */
 }  
-   /* --- TESTIMONIAL / REVIEW CARD FIX --- */
+   /* --- PERFECT FIXED TESTIMONIAL CAROUSEL --- */
 .test-carousel-wrap {
-    width: 100% !important;        
+    width: 100% !important;
     overflow: hidden !important;
     position: relative !important;
+    padding: 0 !important;
 }
 
 .test-track {
     display: flex !important;
-    flex-wrap: nowrap !important; /* Keeps cards in a beautiful sliding line */
-    gap: 18px !important;
+    flex-wrap: nowrap !important; /* Forces cards to stay in a single horizontal sliding row */
+    gap: 16px !important;
     height: auto !important;
     padding: 20px 0 !important;
 }
 
 .test-card {
-    flex-shrink: 0 !important;      /* Keeps the cards in a horizontal sliding row */
-    min-width: 350px !important;    /* Beautiful width on Laptop/PC screens */
-    max-width: 400px !important;
-    height: auto !important;        /* Lets the card grow vertically to fit text */
-    min-height: 340px !important;   /* Solid height foundation so no text cuts off */
+    flex-shrink: 0 !important;       /* Prevents the cards from squeezing flat */
+    width: 380px !important;         /* Beautiful fixed width on Laptop/PC screens */
+    max-width: 85vw !important;      /* CRITICAL: Safe fluid boundary fallback for mobile screens */
+    height: auto !important;         /* Grows vertically automatically so text never cuts off */
+    min-height: 320px !important;    /* Tall baseline structure so boxes stay balanced */
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 32px 24px !important;
+    padding: 28px 24px !important;
     box-sizing: border-box !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border-radius: 16px !important;
@@ -442,8 +443,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
 
 @media (max-width: 768px) {
     .test-card {
-        min-width: 290px !important; /* Slightly narrower to fit mobile screen widths perfectly */
-        min-height: 380px !important; /* Taller height on mobile because narrow text takes more vertical rows */
+        min-height: 360px !important; /* Gives extra vertical layout space for text rows on narrow mobile viewports */
+        padding: 22px 18px !important;
     }
 }
 </style>
