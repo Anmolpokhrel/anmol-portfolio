@@ -410,30 +410,36 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
     cursor: pointer !important;
     z-index: 100000 !important; /* Keeps the X button above the menu links */
 }  
-   /* --- TESTIMONIAL / REVIEW CARD CUTOFF FIX --- */
-.test-track, .testimonial-track, .test-container {
-    display: flex !important;
-    flex-wrap: wrap !important; /* Lets cards wrap naturally on smaller screens */
-    height: auto !important;   /* Prevents the container from clipping content */
-    overflow: visible !important; 
-    justify-content: center !important;
-    gap: 24px !important;
+   /* --- TESTIMONIAL / REVIEW CARD FIX --- */
+.test-carousel-wrap {
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
 }
 
-.test-card, .testimonial-card {
-    height: auto !important;     /* Forces the card height to expand based on text size */
-    min-height: 250px !important; /* Sets a base height so cards look uniform */
+.test-track {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Keeps cards in a beautiful sliding line */
+    gap: 18px !important;
+    height: auto !important;
+    padding: 20px 0 !important;
+}
+
+.test-card {
+    min-width: 380px !important;
+    height: auto !important;        /* Let the height grow with the text */
+    min-height: 280px !important;   /* High enough so long text never spills over */
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 24px !important;
+    padding: 32px 28px !important;
     box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
-    .test-card, .testimonial-card {
-        width: 100% !important; /* Takes full width on mobile so text doesn't squeeze */
-        margin: 10px 0 !important;
+    .test-card {
+        min-width: 290px !important; /* Slightly narrower cards to fit beautifully on mobile screens */
+        min-height: 320px !important; /* Gives extra text height room for mobile layout sizing */
     }
 }
 </style>
