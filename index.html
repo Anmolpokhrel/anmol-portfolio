@@ -1115,7 +1115,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
           <div class="svc-name">Graphic Design</div>
           <div class="svc-sdesc">Canva / Adobe Ps &amp; Ai at your DS</div>
         </div>
-        <span class="svc-tools-badge">Ps · Ai · Canva</span>
+        <span class="svc-tools-badge">Ps · illustrator · Canva</span>
         <span class="svc-price-hint">See pricing →</span>
       </div>
       <div class="svc-item" data-service="logo" tabindex="0" role="button" aria-haspopup="dialog">
@@ -1124,7 +1124,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
           <div class="svc-name">Logo &amp; Brand Design</div>
           <div class="svc-sdesc">Distinctive marks &amp; full identity at your DS</div>
         </div>
-        <span class="svc-tools-badge">Ai · Ps</span>
+        <span class="svc-tools-badge">illustrator · Ps</span>
         <span class="svc-price-hint">See pricing →</span>
       </div>
       <div class="svc-item" data-service="social" tabindex="0" role="button" aria-haspopup="dialog">
@@ -1419,41 +1419,41 @@ const pricingData = {
   graphic: {
     icon:'🎨', title:'Graphic Design',
     plans:[
-      { name:'Basic', price:'$25', period:'per design', feats:['1 static design (social post, poster, etc.)','2 revision rounds','Source file on request','48-hour delivery'] },
-      { name:'Standard', price:'$70', period:'pack of 5 designs', feats:['5 static designs','Unlimited revisions','Source files included','3-day delivery','Consistent style across set'], popular:true },
-      { name:'Premium', price:'$180', period:'monthly retainer', feats:['Up to 15 designs / month','Priority turnaround','Dedicated brief calls','All source files','Basic motion add-ons'] }
+      { name:'Basic', price:'Rs 499', period:'per design', feats:['1 static design (social post, poster, etc.)','2 revision rounds','Source file on request','48-hour delivery'] },
+      { name:'Standard', price:'Rs 4,999', period:'pack of 5 designs', feats:['5 static designs','Unlimited revisions','Source files included','3-day delivery','Consistent style across set'], popular:true },
+      { name:'Premium', price:'Rs 11,999', period:'monthly retainer', feats:['Up to 15 designs / month','Priority turnaround','Dedicated brief calls','All source files','Basic motion add-ons'] }
     ]
   },
   logo: {
     icon:'✏️', title:'Logo & Brand Design',
     plans:[
-      { name:'Starter', price:'$60', period:'logo only', feats:['2 initial concepts','2 revision rounds','Final files (PNG, SVG)','5-day delivery'] },
-      { name:'Brand Kit', price:'$150', period:'one-time', feats:['3 logo concepts','Color palette & typography','Brand guideline sheet','Unlimited revisions','7-day delivery'], popular:true },
-      { name:'Full Identity', price:'$350', period:'one-time', feats:['Complete brand identity system','Business card & letterhead','Social media kit','Brand guideline document','Priority support'] }
+      { name:'Starter', price:'Rs 1,999', period:'logo only', feats:['2 initial concepts','2 revision rounds','Final files (PNG, SVG)','5-day delivery'] },
+      { name:'Brand Kit', price:'Rs 4,999', period:'one-time', feats:['3 logo concepts','Color palette & typography','Brand guideline sheet','Unlimited revisions','7-day delivery'], popular:true },
+      { name:'Full Identity', price:'Rs 11,999', period:'one-time', feats:['Complete brand identity system','Business card & letterhead','Social media kit','Brand guideline document','Priority support'] }
     ]
   },
   social: {
     icon:'📱', title:'Social Media Management',
     plans:[
-      { name:'Starter', price:'$150', period:'per month', feats:['12 posts / month','Basic caption writing','1 platform managed','Monthly performance note'] },
-      { name:'Growth', price:'$320', period:'per month', feats:['20 posts + 4 reels / month','Content calendar & captions','2 platforms managed','Community engagement','Monthly report'], popular:true },
-      { name:'Pro', price:'$600', period:'per month', feats:['Daily posting across platforms','Paid ad management (Meta)','Full content calendar','Analytics & strategy calls','Priority support'] }
+      { name:'Starter', price:'Rs 9,999', period:'per month', feats:['12 posts / month','Basic caption writing','1 platform managed','Monthly performance note'] },
+      { name:'Growth', price:'Rs 14,999', period:'per month', feats:['20 posts + 4 reels / month','Content calendar & captions','2 platforms managed','Community engagement','Monthly report'], popular:true },
+      { name:'Pro', price:'Rs 19,999', period:'per month', feats:['Daily posting across platforms','Paid ad management (Meta)','Full content calendar','Analytics & strategy calls','Priority support'] }
     ]
   },
   video: {
     icon:'🎬', title:'Video Editing',
     plans:[
-      { name:'Basic', price:'$20', period:'per video (≤60s)', feats:['Simple cuts & captions','Basic color correction','1 revision round','2-day delivery'] },
-      { name:'Standard', price:'$60', period:'per video (≤3min)', feats:['Motion graphics & transitions','Color grading','Sound design','2 revision rounds','3-day delivery'], popular:true },
-      { name:'Premium', price:'$150', period:'per video (long-form)', feats:['Full motion graphics package','Advanced color grading','Custom sound design','Unlimited revisions','Priority delivery'] }
+      { name:'Basic', price:'Rs 1,999', period:'per video (≤60s)', feats:['Simple cuts & captions','Basic color correction','1 revision round','2-day delivery'] },
+      { name:'Standard', price:'Rs 4,999', period:'per video (≤3min)', feats:['Motion graphics & transitions','Color grading','Sound design','2 revision rounds','3-day delivery'], popular:true },
+      { name:'Premium', price:'Rs 10k+', period:'per video (long-form)', feats:['Full motion graphics package','Advanced color grading','Custom sound design','Unlimited revisions','Priority delivery'] }
     ]
   },
   uiux: {
     icon:'🧩', title:'UI/UX Design',
     plans:[
-      { name:'Basic', price:'$80', period:'per screen set', feats:['Up to 3 screens','Wireframes in Figma','1 revision round','Mobile or web (one)'] },
-      { name:'Standard', price:'$250', period:'up to 8 screens', feats:['Wireframes + high-fidelity UI','Basic design system','Interactive prototype','2 revision rounds'], popular:true },
-      { name:'Premium', price:'$600', period:'full product', feats:['Full app / site UI (10+ screens)','Complete design system','Clickable prototype','User-flow mapping','Unlimited revisions'] }
+      { name:'Basic', price:'Rs 2,999', period:'per screen set', feats:['Up to 3 screens','Wireframes in Figma','1 revision round','Mobile or web (one)'] },
+      { name:'Standard', price:'Rs 4,999', period:'up to 8 screens', feats:['Wireframes + high-fidelity UI','Basic design system','Interactive prototype','2 revision rounds'], popular:true },
+      { name:'Premium', price:'Rs 10k+', period:'full product', feats:['Full app / site UI (10+ screens)','Complete design system','Clickable prototype','User-flow mapping','Unlimited revisions'] }
     ]
   }
 };
