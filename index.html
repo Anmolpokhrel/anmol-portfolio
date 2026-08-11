@@ -146,20 +146,35 @@ section{padding:100px 6%;position:relative}
 .f-btn{padding:8px 18px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text2);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .22s;font-family:'Space Grotesk',sans-serif}
 .f-btn:hover,.f-btn.active{background:rgba(76,125,255,.13);border-color:rgba(76,125,255,.45);color:var(--violet2);box-shadow:0 0 0 1px rgba(76,125,255,.15)}
 
-/* Work grid — modern compact 4 col */
-.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.w-card{border-radius:var(--r);overflow:hidden;background:var(--surface);border:1px solid var(--border);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s,border-color .25s;position:relative}
-.w-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.45);border-color:rgba(76,125,255,.35)}
-.w-thumb{height:120px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
-.w-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.w-card:hover .w-thumb img{transform:scale(1.06)}
-.w-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,22,.92) 0%,rgba(10,14,22,.15) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:10px;opacity:0;transition:opacity .25s}
-.w-card:hover .w-overlay{opacity:1}
-.w-view-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:100px;background:var(--violet);color:#fff;font-size:.62rem;font-weight:700;box-shadow:0 3px 12px rgba(76,125,255,.5);align-self:flex-start;letter-spacing:.01em}
-.w-info{padding:10px 12px 12px}
-.w-cat{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet2);margin-bottom:3px}
-.w-name{font-size:.8rem;font-weight:700;letter-spacing:-.01em;margin-bottom:3px;color:var(--text)}
-.w-desc{color:var(--text2);font-size:.71rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* Work grid — modern compact poster-style cards, text lives ON the artwork */
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.w-card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/3.7;background:var(--surface);border:1px solid var(--border);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s,border-color .25s;cursor:pointer}
+.w-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.5);border-color:rgba(76,125,255,.4)}
+.w-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.w-art::before{content:'';position:absolute;width:220%;height:220%;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.12),transparent 60%);}
+.w-art-icon{font-size:4rem;opacity:.24;transform:scale(1.7) rotate(-10deg);filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
+.w-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,14,.94) 0%,rgba(6,8,14,.38) 45%,transparent 78%)}
+.w-tagpill{position:absolute;top:12px;left:12px;z-index:2;padding:4px 11px;border-radius:100px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#fff}
+.w-view-chip{position:absolute;top:12px;right:12px;z-index:2;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#fff;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .25s}
+.w-card:hover .w-view-chip{opacity:1;transform:none}
+.w-content{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 15px 16px}
+.w-ptitle{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.15;margin-bottom:4px;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.w-psub{font-size:.68rem;color:rgba(255,255,255,.68);line-height:1.45}
+
+/* Instagram-feed style mock card (Social Media Design) */
+.w-card.ig-mock{background:#fff;display:flex;flex-direction:column}
+.ig-head{display:flex;align-items:center;gap:8px;padding:11px 12px 9px}
+.ig-avatar{width:28px;height:28px;border-radius:50%;background:var(--gv);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#fff;flex-shrink:0}
+.ig-uname{font-size:.74rem;font-weight:700;color:#1c1c1e;flex:1}
+.ig-follow{font-size:.65rem;font-weight:700;color:#3897f0;border:1px solid #3897f0;padding:3px 10px;border-radius:6px}
+.ig-photo{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;font-size:2.6rem;overflow:hidden}
+.ig-photo-scrim{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,0),rgba(0,0,0,.12))}
+.ig-actions{display:flex;align-items:center;gap:11px;padding:9px 12px 3px;font-size:.95rem;color:#1c1c1e}
+.ig-actions .ig-save{margin-left:auto}
+.ig-likes{padding:2px 12px 0;font-size:.72rem;font-weight:700;color:#1c1c1e}
+.ig-caption{padding:3px 12px 12px;font-size:.68rem;line-height:1.45;color:#3a3a3c}
+.ig-caption b{color:#1c1c1e}
+.ig-caption .ig-tags{color:#00376b}
 .port-cta{text-align:center;margin-top:44px}
 .port-cta a{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;border-radius:100px;border:1.5px solid var(--border-v);color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;transition:all .22s}
 .port-cta a:hover{border-color:var(--violet);background:rgba(76,125,255,.09);transform:translateY(-2px)}
@@ -381,7 +396,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
   .hero-btns{flex-direction:column;align-items:center}
   .btn-primary,.btn-outline,.btn-wa{justify-content:center;width:100%;max-width:280px}
   .work-grid{grid-template-columns:repeat(2,1fr)}
-  .w-thumb{height:100px}
+  .w-card{aspect-ratio:3/3.4}
   .sk-bento{grid-template-columns:1fr}
   .sk-wide{grid-column:span 1}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -587,139 +602,217 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
     </div>
     <div class="port-filters reveal">
       <button class="f-btn active" data-filter="all">All Work</button>
-      <button class="f-btn" data-filter="logo">Logo Design</button>
       <button class="f-btn" data-filter="social">Social Media</button>
-      <button class="f-btn" data-filter="branding">Branding</button>
-      <button class="f-btn" data-filter="ads">Advertising</button>
-      <button class="f-btn" data-filter="banner">Banners</button>
-      <button class="f-btn" data-filter="thumb">Thumbnails</button>
-      <button class="f-btn" data-filter="video">Video</button>
-      <button class="f-btn" data-filter="campaign">Campaigns</button>
+      <button class="f-btn" data-filter="logo">Logo &amp; Branding</button>
+      <button class="f-btn" data-filter="book">Book Cover</button>
+      <button class="f-btn" data-filter="characters">Characters &amp; Concept</button>
+      <button class="f-btn" data-filter="banner">Banner &amp; Billboard</button>
+      <button class="f-btn" data-filter="poster">Poster</button>
+      <button class="f-btn" data-filter="rollup">Roll-up</button>
+      <button class="f-btn" data-filter="product">Product Manipulation</button>
+      <button class="f-btn" data-filter="packaging">Packaging</button>
+      <button class="f-btn" data-filter="card">Business Card</button>
+      <button class="f-btn" data-filter="menu">Menu Design</button>
+      <button class="f-btn" data-filter="brochure">Brochure</button>
+      <button class="f-btn" data-filter="uiux">UI/UX</button>
     </div>
     <div class="work-grid" id="workGrid">
-      <!-- Card 1 -->
+      <!-- Card 1 — Social Media (Instagram feed mock, like reference) -->
+      <div class="w-card ig-mock reveal" data-cat="social">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%;color:inherit">
+          <div class="ig-head">
+            <div class="ig-avatar">AP</div>
+            <div class="ig-uname">anmol.creates</div>
+            <span class="ig-follow">Follow</span>
+          </div>
+          <div class="ig-photo" style="background:linear-gradient(135deg,#c9e4c5,#5c8d5f)">
+            <span>🌿</span>
+            <div class="ig-photo-scrim"></div>
+          </div>
+          <div class="ig-actions">
+            <span>♡</span><span>💬</span><span>➤</span><span class="ig-save">🔖</span>
+          </div>
+          <div class="ig-likes">98 likes</div>
+          <div class="ig-caption"><b>anmol.creates</b> Beautify the nature ✨ skincare campaign post. <span class="ig-tags">#Design #cool #stuff</span></div>
+        </a>
+      </div>
+      <!-- Card 2 — Logo & Branding -->
       <div class="w-card reveal" data-cat="logo">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#1a0533,#2d1b69);">
-            <img src="First final logo.jpg" alt="Modern Tech Logo" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#1a0533,#2d1b69)">
+            <span class="w-art-icon">🔷</span>
           </div>
-          <div class="w-info">
-            <div class="w-cat">Logo Design</div>
-            <div class="w-name">Modern Tech Logo</div>
-            <div class="w-desc">Minimalist wordmark for a tech startup with bold geometry and gradient accent.</div>
-          </div>
-        </a>
-      </div>
-      <!-- Card 2 -->
-      <div class="w-card reveal" data-cat="social">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1b4371);">
-            <img src="33print post .jpg" alt="Fashion Brand Feed" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
-          </div>
-          <div class="w-info">
-            <div class="w-cat">Social Media</div>
-            <div class="w-name">Fashion Brand Feed</div>
-            <div class="w-desc">Cohesive Instagram feed with curated color palette for a fashion brand.</div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Logo &amp; Branding</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Modern Tech Logo &amp; Brand Kit</div>
+            <div class="w-psub">Wordmark, color system &amp; brand guideline for a startup.</div>
           </div>
         </a>
       </div>
-      <!-- Card 3 -->
-      <div class="w-card reveal" data-cat="branding">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
-            <img src="Final logo of SD.jpg" alt="Luxury Brand Identity" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
+      <!-- Card 3 — Book Cover -->
+      <div class="w-card reveal" data-cat="book">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#241014,#5c1a2b)">
+            <span class="w-art-icon">📖</span>
           </div>
-          <div class="w-info">
-            <div class="w-cat">Business Branding</div>
-            <div class="w-name">Luxury Brand Identity</div>
-            <div class="w-desc">Full brand identity — logo, color system, typography, and brand guidelines.</div>
-          </div>
-        </a>
-      </div>
-      <!-- Card 4 -->
-      <div class="w-card reveal" data-cat="ads">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#0f3460,#e94560);">
-            <img src="Graphic-design.jpg" alt="Facebook Ad Campaign" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
-          </div>
-          <div class="w-info">
-            <div class="w-cat">Advertising Design</div>
-            <div class="w-name">Facebook Ad Campaign</div>
-            <div class="w-desc">High-converting ad creative set for a product launch with A/B tested variants.</div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Book Cover</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Novel Cover — "Silent Tides"</div>
+            <div class="w-psub">Moody typographic cover design for a fiction release.</div>
           </div>
         </a>
       </div>
-      <!-- Card 5 -->
+      <!-- Card 4 — Characters & Concept -->
+      <div class="w-card reveal" data-cat="characters">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#1a1a2e,#3d2a56)">
+            <span class="w-art-icon">🎭</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Characters &amp; Concept</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Character Concept Sheet</div>
+            <div class="w-psub">Original character design &amp; concept art exploration.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 5 — Banner & Billboard -->
       <div class="w-card reveal" data-cat="banner">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#2d0035,#6a0080);">
-            <img src="2-Uk-post.jpg" alt="Event Promotion Banner" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#001b3d,#0a4b9e)">
+            <span class="w-art-icon">🪧</span>
           </div>
-          <div class="w-info">
-            <div class="w-cat">Banner Design</div>
-            <div class="w-name">Event Promotion Banner</div>
-            <div class="w-desc">Dynamic event banner for digital and print use with vibrant neon styling.</div>
-          </div>
-        </a>
-      </div>
-      <!-- Card 6 -->
-      <div class="w-card reveal" data-cat="thumb">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#003d33,#00786c);">
-            <span>🖼️</span>
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
-          </div>
-          <div class="w-info">
-            <div class="w-cat">Thumbnail Design</div>
-            <div class="w-name">YouTube Thumbnail Series</div>
-            <div class="w-desc">Clickable YouTube thumbnails with 40%+ CTR improvement using bold visuals.</div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Banner &amp; Billboard</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Design Market Myanmar Billboard</div>
+            <div class="w-psub">Large-format outdoor billboard for a design market event.</div>
           </div>
         </a>
       </div>
-      <!-- Card 7 -->
-      <div class="w-card reveal" data-cat="video">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#1a0a00,#3d1c00);">
-            <span>🎬</span>
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
+      <!-- Card 6 — Poster -->
+      <div class="w-card reveal" data-cat="poster">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#12121e,#2a2a44)">
+            <span class="w-art-icon">🖼️</span>
           </div>
-          <div class="w-info">
-            <div class="w-cat">Video Editing</div>
-            <div class="w-name">Brand Promo Reel</div>
-            <div class="w-desc">60-second promotional video with motion graphics and color grading.</div>
-          </div>
-        </a>
-      </div>
-      <!-- Card 8 -->
-      <div class="w-card reveal" data-cat="campaign">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#00105a,#0028b5);">
-            <img src="1.jpg" alt="30-Day Growth Campaign" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
-          </div>
-          <div class="w-info">
-            <div class="w-cat">Social Media Campaign</div>
-            <div class="w-name">30-Day Growth Campaign</div>
-            <div class="w-desc">Full social media campaign strategy with content calendar, captions, and paid ads.</div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Poster Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Event Speaker Poster Series</div>
+            <div class="w-psub">Bold typographic event poster set with speaker highlight.</div>
           </div>
         </a>
       </div>
-      <!-- Card 9 -->
-      <div class="w-card reveal" data-cat="logo">
-        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="w-thumb" style="background:linear-gradient(135deg,#003300,#007700);">
-            <img src="Krishe plus by pokhrelanmol.com.np.jpg" alt="Eco Brand Logo" onerror="this.style.display='none'">
-            <div class="w-overlay"><span class="w-view-btn">📌 View on Pinterest ↗</span></div>
+      <!-- Card 7 — Roll-up -->
+      <div class="w-card reveal" data-cat="rollup">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#2d0035,#6a0080)">
+            <span class="w-art-icon">🚩</span>
           </div>
-          <div class="w-info">
-            <div class="w-cat">Logo Design</div>
-            <div class="w-name">Eco Brand Logo</div>
-            <div class="w-desc">Nature-inspired logo for an eco-friendly brand with organic shapes and green palette.</div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Roll-up Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Exhibition Roll-up Standee</div>
+            <div class="w-psub">Tall standee banner for trade-show &amp; brand activation.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 8 — Product Manipulation -->
+      <div class="w-card reveal" data-cat="product">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#00105a,#0028b5)">
+            <span class="w-art-icon">🧴</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Product Manipulation</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Surreal Product Composite</div>
+            <div class="w-psub">Photo-manipulated hero shot with dramatic lighting &amp; splash FX.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 9 — Packaging -->
+      <div class="w-card reveal" data-cat="packaging">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#1c2b1a,#3f6e3a)">
+            <span class="w-art-icon">📦</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Packaging Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Organic Skincare Packaging</div>
+            <div class="w-psub">Box &amp; label system for a natural skincare product line.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 10 — Business Card -->
+      <div class="w-card reveal" data-cat="card">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#1a1a1a,#3a3a3a)">
+            <span class="w-art-icon">💳</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Business Card</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Minimal Foil Business Card</div>
+            <div class="w-psub">Two-sided card design with gold foil accent &amp; embossing.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 11 — Menu Design -->
+      <div class="w-card reveal" data-cat="menu">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#3d1c00,#7a3b00)">
+            <span class="w-art-icon">🍽️</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Menu Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Café Food &amp; Drinks Menu</div>
+            <div class="w-psub">Warm, elegant tri-fold menu layout for a local café.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 12 — Brochure -->
+      <div class="w-card reveal" data-cat="brochure">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#003d33,#00786c)">
+            <span class="w-art-icon">📑</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">Brochure Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Corporate Tri-fold Brochure</div>
+            <div class="w-psub">Clean information layout for a company service brochure.</div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 13 — UI/UX -->
+      <div class="w-card reveal" data-cat="uiux">
+        <a href="https://pin.it/1orojL5k2" target="_blank" style="text-decoration:none;display:block;height:100%">
+          <div class="w-art" style="background:linear-gradient(135deg,#0a0e2a,#1c2a6e)">
+            <span class="w-art-icon">🧩</span>
+          </div>
+          <div class="w-scrim"></div>
+          <div class="w-tagpill">UI/UX Design</div>
+          <div class="w-view-chip">↗</div>
+          <div class="w-content">
+            <div class="w-ptitle">Mobile App Onboarding Flow</div>
+            <div class="w-psub">Wireframe-to-prototype UI kit with a clean design system.</div>
           </div>
         </a>
       </div>
@@ -1115,7 +1208,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
           <div class="svc-name">Graphic Design</div>
           <div class="svc-sdesc">Canva / Adobe Ps &amp; Ai at your DS</div>
         </div>
-        <span class="svc-tools-badge">Ps · illustrator · Canva</span>
+        <span class="svc-tools-badge">Ps · Ai · Canva</span>
         <span class="svc-price-hint">See pricing →</span>
       </div>
       <div class="svc-item" data-service="logo" tabindex="0" role="button" aria-haspopup="dialog">
@@ -1124,7 +1217,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
           <div class="svc-name">Logo &amp; Brand Design</div>
           <div class="svc-sdesc">Distinctive marks &amp; full identity at your DS</div>
         </div>
-        <span class="svc-tools-badge">illustrator · Ps</span>
+        <span class="svc-tools-badge">Ai · Ps</span>
         <span class="svc-price-hint">See pricing →</span>
       </div>
       <div class="svc-item" data-service="social" tabindex="0" role="button" aria-haspopup="dialog">
@@ -1270,6 +1363,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 6% 
   </div>
   <div class="footer-bottom">
     <div>© 2026 Anmol Pokhrel. All Rights Reserved.</div>
+    <div class="ft-tagline">Imagine. Create. Impact.</div>
   </div>
 </footer>
 
@@ -1419,41 +1513,41 @@ const pricingData = {
   graphic: {
     icon:'🎨', title:'Graphic Design',
     plans:[
-      { name:'Basic', price:'Rs 499', period:'per design', feats:['1 static design (social post, poster, etc.)','2 revision rounds','Source file on request','48-hour delivery'] },
-      { name:'Standard', price:'Rs 4,999', period:'pack of 5 designs', feats:['5 static designs','Unlimited revisions','Source files included','3-day delivery','Consistent style across set'], popular:true },
-      { name:'Premium', price:'Rs 11,999', period:'monthly retainer', feats:['Up to 15 designs / month','Priority turnaround','Dedicated brief calls','All source files','Basic motion add-ons'] }
+      { name:'Basic', price:'$25', period:'per design', feats:['1 static design (social post, poster, etc.)','2 revision rounds','Source file on request','48-hour delivery'] },
+      { name:'Standard', price:'$70', period:'pack of 5 designs', feats:['5 static designs','Unlimited revisions','Source files included','3-day delivery','Consistent style across set'], popular:true },
+      { name:'Premium', price:'$180', period:'monthly retainer', feats:['Up to 15 designs / month','Priority turnaround','Dedicated brief calls','All source files','Basic motion add-ons'] }
     ]
   },
   logo: {
     icon:'✏️', title:'Logo & Brand Design',
     plans:[
-      { name:'Starter', price:'Rs 1,999', period:'logo only', feats:['2 initial concepts','2 revision rounds','Final files (PNG, SVG)','5-day delivery'] },
-      { name:'Brand Kit', price:'Rs 4,999', period:'one-time', feats:['3 logo concepts','Color palette & typography','Brand guideline sheet','Unlimited revisions','7-day delivery'], popular:true },
-      { name:'Full Identity', price:'Rs 11,999', period:'one-time', feats:['Complete brand identity system','Business card & letterhead','Social media kit','Brand guideline document','Priority support'] }
+      { name:'Starter', price:'$60', period:'logo only', feats:['2 initial concepts','2 revision rounds','Final files (PNG, SVG)','5-day delivery'] },
+      { name:'Brand Kit', price:'$150', period:'one-time', feats:['3 logo concepts','Color palette & typography','Brand guideline sheet','Unlimited revisions','7-day delivery'], popular:true },
+      { name:'Full Identity', price:'$350', period:'one-time', feats:['Complete brand identity system','Business card & letterhead','Social media kit','Brand guideline document','Priority support'] }
     ]
   },
   social: {
     icon:'📱', title:'Social Media Management',
     plans:[
-      { name:'Starter', price:'Rs 9,999', period:'per month', feats:['12 posts / month','Basic caption writing','1 platform managed','Monthly performance note'] },
-      { name:'Growth', price:'Rs 14,999', period:'per month', feats:['20 posts + 4 reels / month','Content calendar & captions','2 platforms managed','Community engagement','Monthly report'], popular:true },
-      { name:'Pro', price:'Rs 19,999', period:'per month', feats:['Daily posting across platforms','Paid ad management (Meta)','Full content calendar','Analytics & strategy calls','Priority support'] }
+      { name:'Starter', price:'$150', period:'per month', feats:['12 posts / month','Basic caption writing','1 platform managed','Monthly performance note'] },
+      { name:'Growth', price:'$320', period:'per month', feats:['20 posts + 4 reels / month','Content calendar & captions','2 platforms managed','Community engagement','Monthly report'], popular:true },
+      { name:'Pro', price:'$600', period:'per month', feats:['Daily posting across platforms','Paid ad management (Meta)','Full content calendar','Analytics & strategy calls','Priority support'] }
     ]
   },
   video: {
     icon:'🎬', title:'Video Editing',
     plans:[
-      { name:'Basic', price:'Rs 1,999', period:'per video (≤60s)', feats:['Simple cuts & captions','Basic color correction','1 revision round','2-day delivery'] },
-      { name:'Standard', price:'Rs 4,999', period:'per video (≤3min)', feats:['Motion graphics & transitions','Color grading','Sound design','2 revision rounds','3-day delivery'], popular:true },
-      { name:'Premium', price:'Rs 10k+', period:'per video (long-form)', feats:['Full motion graphics package','Advanced color grading','Custom sound design','Unlimited revisions','Priority delivery'] }
+      { name:'Basic', price:'$20', period:'per video (≤60s)', feats:['Simple cuts & captions','Basic color correction','1 revision round','2-day delivery'] },
+      { name:'Standard', price:'$60', period:'per video (≤3min)', feats:['Motion graphics & transitions','Color grading','Sound design','2 revision rounds','3-day delivery'], popular:true },
+      { name:'Premium', price:'$150', period:'per video (long-form)', feats:['Full motion graphics package','Advanced color grading','Custom sound design','Unlimited revisions','Priority delivery'] }
     ]
   },
   uiux: {
     icon:'🧩', title:'UI/UX Design',
     plans:[
-      { name:'Basic', price:'Rs 2,999', period:'per screen set', feats:['Up to 3 screens','Wireframes in Figma','1 revision round','Mobile or web (one)'] },
-      { name:'Standard', price:'Rs 4,999', period:'up to 8 screens', feats:['Wireframes + high-fidelity UI','Basic design system','Interactive prototype','2 revision rounds'], popular:true },
-      { name:'Premium', price:'Rs 10k+', period:'full product', feats:['Full app / site UI (10+ screens)','Complete design system','Clickable prototype','User-flow mapping','Unlimited revisions'] }
+      { name:'Basic', price:'$80', period:'per screen set', feats:['Up to 3 screens','Wireframes in Figma','1 revision round','Mobile or web (one)'] },
+      { name:'Standard', price:'$250', period:'up to 8 screens', feats:['Wireframes + high-fidelity UI','Basic design system','Interactive prototype','2 revision rounds'], popular:true },
+      { name:'Premium', price:'$600', period:'full product', feats:['Full app / site UI (10+ screens)','Complete design system','Clickable prototype','User-flow mapping','Unlimited revisions'] }
     ]
   }
 };
@@ -1500,7 +1594,7 @@ document.querySelectorAll('[data-service-scroll]').forEach(link => {
   const el = document.getElementById('heroWord');
   if(!el) return;
   el.style.fontFamily = "'Space Grotesk', sans-serif";
-  const words = ['GRAPHIC', 'BRANDING', 'UI/UX', 'PRODUCT'];
+  const words = ['GRAPHIC', 'BRAND IDENTITY', 'UI/UX', 'PRODUCT'];
   let i = 0;
   setInterval(() => {
     i = (i + 1) % words.length;
